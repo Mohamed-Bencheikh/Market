@@ -1,0 +1,26 @@
+button{
+    width: 150px;
+}
+body{    
+    justify-items: center;
+    align-content: center;
+    text-align: center;
+    background-color: black;
+}
+h2{
+color: green;
+    font-weight: bold;
+}
+form{
+    align-items: center;
+    text-align: center;
+    background: #000; 
+
+}
+input{
+    width: 250px;
+}
+.header{
+    height: 150px;
+    background: #000;
+}

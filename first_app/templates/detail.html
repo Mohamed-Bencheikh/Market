@@ -1,0 +1,41 @@
+<body class="text-center">
+    {% extends './base.html' %}
+    {% block navbar %}
+    <table class="table table-bordered mt-4 mx-5">
+        <tr>
+            <td>ID</td>
+            <td><b>#{{item.client_id}}</b></td>
+        </tr>
+        <tr>
+            <td>NAME</td>
+            <td><b>{{item.client_name}}</b></td>
+        </tr>
+        <tr>
+            <td>NECKNAME</td>
+            <td><b>{{item.client_neckname}}</b></td>
+        </tr>
+        <tr>
+            <td>PHONE</td>
+            <td><b>{{item.client_phone}}</b></td>
+        </tr>
+        <tr>
+            <td>TOTAL</td>
+            <td><b>{{item.client_total}} dhs</b></td>
+        </tr>
+        <tr>
+            <td>LAST PAYMENT</td>
+            <td><b>{{item.client_last_payment}} dhs</b></td>
+        </tr>
+        <tr>
+            <td>DATE OF LAST PAYMENT</td>
+            <td><b>{{item.client_last_payment_date}}</b></td>
+        </tr>
+
+
+    </table>
+    <div class="align-items-center mt-5">
+        <button id="b_add" class="btn btn-primary" type="button"><b>ADD</b></button>
+        <button id="b_pay" class="btn btn-info" type="button"><b>PAY</b></button>
+    </div>
+</body>
+{% endblock navbar %}

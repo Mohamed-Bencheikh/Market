@@ -1,0 +1,65 @@
+{% extends './base.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clients list</title>
+    <style>
+        #h {
+            color: lightblue;
+            text-align: center;
+            font-weight: bolder;
+        }
+    </style>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+    {% block navbar %}
+    {% for msg in messages %}
+    <div class="alert alert-{{msg.tags}}">{{msg}}</div>
+    {% endfor %}
+    <div class="row">
+        <form class="d-flex">
+            <input class="form-control me-1" type="search" name="search_cli" placeholder="Search for clients"
+                aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form>
+    </div>
+    <h3 class=" mt-5 mb-5 text-center" style="color: blue;font-weight:bolder;">Clients
+        List</h3>
+    <table class="table table-borderless">
+        <tr>
+            <th>Photo</th>
+            <th>#</th>
+            <th>Name</th>
+            <th>Total</th>
+            <th>Last operation</th>
+        </tr>
+        {% for client in item_list %}
+        <tr class="table-table ">
+            <td><img class="pb-3" src="{{client.client_photo.url}}" alt="{{client.client_id}} photo" width="40px"
+                    height="45px">
+            </td>
+            <td><b>{{client.client_id}}</b></td>
+            <td><b>{{client.client_name}} </b></td>
+            <td><b>0 dh</b></td>
+            {% now "d-m-Y" as date%}
+            {% now "H:i" as time%}
+            <td><a class="btn btn-secondary btn-sm "><b> {{date}}|{{time}} </b></a></td>
+            <td><a class="btn btn-sm" href="{% url 'update' client.client_id %}" role="button"><img
+                        src="../static/images/edit.png" alt="" width="20px" height="20px"></a>
+            </td>
+            <td><a class="btn  btn-sm " href="{% url 'delete' client.client_id %}" role="button"><img
+                        src="../static/images/delete.ico" alt="" width="20px" height="20px"></a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% include 'footer.html' %}
+    {% endblock navbar %}
+</body>
+
+</html>
